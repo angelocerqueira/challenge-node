@@ -1,4 +1,4 @@
 {
-  "singleQuote": ture,
+  "singleQuote": true,
   "trailingComma": "es5"
 }

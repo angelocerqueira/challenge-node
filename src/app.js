@@ -1,21 +1,23 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import routes from './routes';
 
 class App {
   constructor() {
-    this.server = express();
+    this.httpserver = express();
     this.middlewares();
     this.routes();
     this.mongo();
   }
 
   middlewares() {
-    this.server.use(express.json());
+    this.httpserver.use(cors());
+    this.httpserver.use(express.json());
   }
 
   routes() {
-    this.server.use(routes);
+    this.httpserver.use(routes);
   }
 
   mongo() {
@@ -29,4 +31,4 @@ class App {
   }
 }
 
-export default new App().server;
+export default new App().httpserver;

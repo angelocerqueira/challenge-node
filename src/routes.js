@@ -1,14 +1,13 @@
 import { Router } from 'express';
 import MemoryController from './app/controllers/MemoryController';
+import StringController from './app/controllers/StringController';
 
 const routes = new Router();
 
-routes.get('/memory_usage', MemoryController.index);
+routes.get('/memory_usage', MemoryController.store);
 
-routes.get('/message', MemoryController.show);
+routes.get('/message', StringController.show);
 
-routes.get('/live', (req, res) => res.json({ messege: 'hi, working!' }));
-
-routes.post('/message', MemoryController.store);
+routes.post('/message', StringController.store);
 
 export default routes;
