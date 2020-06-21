@@ -6,7 +6,11 @@ O backend foi hospedado em uma instancia EC2 da Amazon Web Services criada gratu
 
 A api pode ser acessa no seguinte link:
 
-<http://api.angel-prototypes.online:3333>
+<http://3.128.102.225>
+
+NetData no seguinte link:
+
+<http://3.128.102.225:19999>
 
 ## Repositório:
  - [FrontEnd - ReactJS](https://github.com/angelocerqueira/Frontend-challenge-reactJS)
