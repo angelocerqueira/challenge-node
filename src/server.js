@@ -1,27 +1,20 @@
 import App from './app';
 
-const http = require('http').Server(App);
+const http = require('http').createServer(App);
 const io = require('socket.io')(http);
 
-const msg = 'mensagem aqui';
-
-// io.on('connection', (socket) => {
-//   console.log('Connected');
-//   socket.on('my other event', (a) => {
-//     console.log(a);
-//   });
-//   socket.emit('emitindo', msg);
-//   socket.on('disconnect', () => {
-//     console.log('Disconnected');
-//   });
-// });
-
+let data = '';
 io.on('connection', (socket) => {
-  console.log('Connected');
-
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', (data) => {
-    console.log(data);
+  console.log('Connected 2');
+  socket.on('postLive', (a) => {
+    data = a;
+  });
+  setTimeout(() => {
+    socket.emit('retornoPostLive', data);
+  }, 2000);
+  socket.on('disconnect', () => {
+    console.log('disconnected');
   });
 });
+
 http.listen(3333);
